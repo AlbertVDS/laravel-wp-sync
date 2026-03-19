@@ -1,0 +1,49 @@
+{
+    "name": "albertvds/laravel-wp-sync",
+    "description": "Laravel service provider, query builder, and webhook bridge for the WordPress and WooCommerce REST APIs.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AlbertVDS",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "illuminate/http": "^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.0",
+        "orchestra/testbench": "^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Albertvds\\WpSync\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Albertvds\\WpSync\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Albertvds\\WpSync\\WpSyncServiceProvider"
+            ],
+            "aliases": {
+                "Wp":  "Albertvds\\WpSync\\WpFacade",
+                "Woo": "Albertvds\\WpSync\\WooFacade"
+            }
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
